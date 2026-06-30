@@ -1,0 +1,122 @@
+/* token-unlock landing — magenta on deep violet, editorial rhythm */
+.tul {
+  --mag: #FF3FA4;
+  --violet: #1A0B2E;
+  --violet-2: #241040;
+  --ink: #F3E9FF;
+  --dim: #B49ED6;
+  --line: #3a2358;
+  position: relative;
+  min-height: 100vh;
+  background:
+    radial-gradient(1100px 600px at 78% -8%, rgba(255, 63, 164, 0.16), transparent 60%),
+    radial-gradient(820px 520px at -5% 108%, rgba(123, 63, 255, 0.14), transparent 55%),
+    var(--violet);
+  color: var(--ink);
+  font-family: system-ui, "Segoe UI", sans-serif;
+  overflow-x: hidden;
+}
+.tul-grain {
+  position: fixed; inset: 0; pointer-events: none; opacity: 0.04; z-index: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.7) 0.5px, transparent 0.5px);
+  background-size: 3px 3px;
+}
+.tul > * { position: relative; z-index: 1; }
+
+.tul [data-reveal] { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
+.tul [data-reveal].in { opacity: 1; transform: none; }
+
+.tul-nav {
+  display: flex; align-items: center; justify-content: space-between;
+  width: min(1180px, 92vw); margin: 0 auto; padding: 1.3rem 0;
+}
+.tul-brand { display: inline-flex; align-items: center; gap: .6rem; font-size: 1.05rem; letter-spacing: .04em; }
+.tul-brand b { font-weight: 800; }
+.tul-brand span { color: var(--mag); }
+.tul-lock { color: var(--mag); display: grid; place-items: center; }
+
+.tul-enter {
+  font: inherit; font-weight: 700; cursor: pointer;
+  color: #1A0B2E; background: var(--mag); border: none; border-radius: 10px;
+  padding: .8rem 1.4rem; letter-spacing: .01em;
+  box-shadow: 0 0 36px rgba(255, 63, 164, .34); transition: transform .15s ease, box-shadow .2s ease;
+}
+.tul-enter:hover { transform: translateY(-2px); box-shadow: 0 0 52px rgba(255, 63, 164, .5); }
+.tul-enter.sm { padding: .5rem .9rem; font-size: .85rem; border-radius: 8px; }
+.tul-ghost {
+  font: inherit; font-weight: 600; cursor: pointer; text-decoration: none;
+  color: var(--ink); background: transparent; border: 1px solid var(--line); border-radius: 10px;
+  padding: .8rem 1.3rem; transition: border-color .18s ease;
+}
+.tul-ghost:hover { border-color: var(--mag); }
+.tul-ghost.sm { padding: .5rem .9rem; font-size: .85rem; }
+
+.tul-hero {
+  width: min(1180px, 92vw); margin: 0 auto; padding: clamp(2rem, 6vh, 5rem) 0 4rem;
+  display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(1.5rem, 4vw, 3.4rem); align-items: center;
+}
+.tul-kicker {
+  display: inline-block; font-size: .76rem; letter-spacing: .24em; text-transform: uppercase;
+  color: var(--mag); margin-bottom: 1.2rem; font-weight: 700;
+}
+.tul-hero h1 {
+  font-size: clamp(2.6rem, 6vw, 4.8rem); line-height: 1; letter-spacing: -.03em; margin: 0 0 1.2rem; font-weight: 800;
+}
+.tul-hero h1 em { font-style: normal; color: var(--mag); }
+.tul-hero-copy p { font-size: clamp(1rem, 1.4vw, 1.18rem); line-height: 1.6; color: var(--dim); margin: 0 0 1.8rem; max-width: 34rem; }
+.tul-actions { display: flex; gap: .8rem; flex-wrap: wrap; margin-bottom: 1.6rem; }
+.tul-tags { display: flex; flex-wrap: wrap; gap: .5rem; }
+.tul-tags span {
+  font-size: .68rem; letter-spacing: .1em; font-family: ui-monospace, monospace;
+  color: var(--dim); border: 1px solid var(--line); border-radius: 99px; padding: .3rem .7rem;
+}
+
+.tul-hero-art { position: relative; border-radius: 18px; overflow: hidden; border: 1px solid var(--line); aspect-ratio: 4/5; }
+.tul-hero-art img { width: 100%; height: 100%; object-fit: cover; filter: saturate(1.05) contrast(1.04); display: block; }
+.tul-hero-art::after { content: ""; position: absolute; inset: 0; background: linear-gradient(160deg, rgba(255,63,164,.18), transparent 45%, rgba(26,11,46,.7)); }
+.tul-art-cap {
+  position: absolute; left: 1rem; bottom: 1rem; z-index: 2; display: flex; flex-direction: column;
+  font-family: ui-monospace, monospace;
+}
+.tul-art-cap span { font-size: .64rem; letter-spacing: .22em; color: var(--mag); }
+.tul-art-cap b { font-size: 1rem; }
+
+.tul-band {
+  width: min(1100px, 92vw); margin: 0 auto; padding: clamp(2.5rem, 6vh, 5rem) 0;
+  display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(1.5rem, 4vw, 3rem); align-items: center;
+  border-top: 1px solid var(--line);
+}
+.tul-band.reverse { grid-template-columns: 1.1fr .9fr; }
+.tul-band.reverse figure { order: 2; }
+.tul-band figure { margin: 0; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); position: relative; }
+.tul-band figure img { width: 100%; aspect-ratio: 3/2; object-fit: cover; display: block; filter: saturate(1.02); }
+.tul-band figcaption {
+  position: absolute; left: .8rem; bottom: .7rem; font-family: ui-monospace, monospace;
+  font-size: .66rem; letter-spacing: .18em; text-transform: uppercase; color: var(--ink);
+  background: rgba(26,11,46,.7); padding: .3rem .6rem; border-radius: 6px; backdrop-filter: blur(4px);
+}
+.tul-band-copy h2 { font-size: clamp(1.5rem, 3vw, 2.3rem); line-height: 1.1; letter-spacing: -.02em; margin: 0 0 1rem; font-weight: 800; }
+.tul-band-copy p { font-size: 1.04rem; line-height: 1.6; color: var(--dim); margin: 0 0 1.4rem; }
+
+.tul-how { width: min(1100px, 92vw); margin: 0 auto; padding: clamp(2.5rem, 6vh, 5rem) 0; border-top: 1px solid var(--line); }
+.tul-eyebrow { display: block; font-size: .76rem; letter-spacing: .24em; text-transform: uppercase; color: var(--mag); margin-bottom: 1.6rem; font-weight: 700; }
+.tul-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: .9rem; }
+.tul-step { background: var(--violet-2); border: 1px solid var(--line); border-radius: 14px; padding: 1.2rem 1.1rem 1.4rem; }
+.tul-step-n { font-family: ui-monospace, monospace; font-weight: 700; color: var(--mag); font-size: .8rem; letter-spacing: .1em; }
+.tul-step h3 { font-size: 1rem; margin: .5rem 0 .4rem; font-weight: 700; }
+.tul-step p { font-size: .85rem; line-height: 1.5; color: var(--dim); margin: 0; }
+
+.tul-foot {
+  width: min(1180px, 92vw); margin: 0 auto; padding: 2.6rem 0 3rem; border-top: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  font-family: ui-monospace, monospace; font-size: .8rem; color: var(--dim);
+}
+
+@media (max-width: 940px) {
+  .tul-hero { grid-template-columns: 1fr; }
+  .tul-hero-art { order: -1; aspect-ratio: 16/10; }
+  .tul-band, .tul-band.reverse { grid-template-columns: 1fr; }
+  .tul-band.reverse figure { order: 0; }
+  .tul-steps { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) { .tul-steps { grid-template-columns: 1fr; } }
